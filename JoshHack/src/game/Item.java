@@ -12,7 +12,7 @@ public class Item {
 	private Color color;
 	public Color color() { return color; }
 
-	private String name;
+	final String name;
 	public String name() { return name; }
 
 	private String appearance;
