@@ -34,12 +34,21 @@ public class Point {
 		if (!(obj instanceof Point))
 			return false;
 		Point other = (Point) obj;
+		checkCoordinates(other);
+		return true;
+	}
+
+	/**
+	 * @param other
+	 */
+	public boolean checkCoordinates(Point other) {
 		if (x != other.x)
 			return false;
 		if (y != other.y)
 			return false;
 		if (z != other.z)
 			return false;
+		
 		return true;
 	}
 
