@@ -40,15 +40,26 @@ public class FieldOfView {
 				if (wx + x < 0 || wx + x >= world.width() || wy + y < 0 || wy + y >= world.height())
 					continue;
 				
-				for (Point p : new Line(wx, wy, wx + x, wy + y)){
-					Tile tile = world.tile(p.x, p.y, wz);
-					visible[p.x][p.y] = true;
-					tiles[p.x][p.y][wz] = tile; 
-					
-					if (!tile.isGround())
-						break;
-				}
+				updateTitle(wx, wy, wz, x, y);
 			}
+		}
+	}
+
+	/**
+	 * @param wx
+	 * @param wy
+	 * @param wz
+	 * @param x
+	 * @param y
+	 */
+	public void updateTitle(int wx, int wy, int wz, int x, int y) {
+		for (Point p : new Line(wx, wy, wx + x, wy + y)){
+			Tile tile = world.tile(p.x, p.y, wz);
+			visible[p.x][p.y] = true;
+			tiles[p.x][p.y][wz] = tile; 
+			
+			if (!tile.isGround())
+				break;
 		}
 	}
 }
